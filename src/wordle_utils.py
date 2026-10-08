@@ -7,10 +7,19 @@ def es_palabra_valida(cadena: str) -> bool:
     else:
         return False
 
-def calcula_minutos_y_segundos(inicio: datetime, fin: datetime) -> tuple:
+def calcula_minutos_y_segundos(inicio: datetime, fin: datetime) -> tuple[int, float]:
+    """Devuelve la diferencia entre dos datetime como minutos y segundos.
+
+    Parámetros:
+        inicio: datetime de inicio
+        fin: datetime de fin
+    Devuelve:
+        Una tupla (minutos, segundos) con la diferencia entre ambos datetime.
+    """
     tiempo_total = fin - inicio
-    tiempo_segundos = tiempo_total.total_seconds() % 60
-    tiempo_minutos = tiempo_total.total_seconds() //60
+    total_segundos = tiempo_total.total_seconds()
+    tiempo_segundos = total_segundos % 60
+    tiempo_minutos = int(total_segundos // 60)
     return (tiempo_minutos, tiempo_segundos)
 
 def quitar_letra(cadena: str, caracter: str):
