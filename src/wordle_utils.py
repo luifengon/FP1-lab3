@@ -2,33 +2,30 @@ from datetime import datetime
 
 
 def es_palabra_valida(cadena: str) -> bool:
-    '''
-    Comprueba si la cadena es una palabra válida:
-    - Tiene 5 letras
-    - Solo contiene letras a-z o A-Z
-
-    Parámetros:
-        cadena: la cadena a comprobar
-    Devuelve:
-        True si la cadena es una palabra válida, False en otro caso
-    '''
-    # TODO: Implementa esta función
-    return True
+    if len(cadena.strip()) == 5 and cadena.isalpha():
+        return True
+    else:
+        return False
 
 def calcula_minutos_y_segundos(inicio: datetime, fin: datetime) -> tuple:
-    """ 
-    Recibe dos datetime y devuelve la diferencia en minutos y segundos.
+    tiempo_total = fin - inicio
+    tiempo_segundos = tiempo_total.total_seconds() % 60
+    tiempo_minutos = tiempo_total.total_seconds() //60
+    return (tiempo_minutos, tiempo_segundos)
 
-    Parámetros:
-        inicio: datetime de inicio
-        fin: datetime de fin
-    Devuelve:
-        Una tupla (minutos, segundos) con la diferencia entre los dos datetime
-    """
-    # TODO: Implementa esta función
-    pass
+def quitar_letra(cadena: str, caracter: str):
+    res = ""
+    borra = True
+    for c in cadena:
+        if c != caracter:
+            res +=c
+        else:
+            if borra:
+                borra = False
+            else:
+                res +=c
+    return res
 
-# TODO: Escribe la cabecera completa e implementa la función quitar_letra
 
 # TODO: Escribe la cabecera completa e implementa la función marcar_verdes
 
