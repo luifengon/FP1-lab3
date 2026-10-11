@@ -36,7 +36,7 @@ def quitar_letra(cadena: str, caracter: str):
     return res
 
 
-# TODO: Escribe la cabecera completa e implementa la función marcar_verdes
+def marcar_verdes()
 
 # TODO: Escribe la cabecera completa e implementa la función marcar_amarillos
 
