@@ -61,15 +61,9 @@ def marcar_amarillos(intento: str, cadena_verdes: str, cadena_restante: str):
 
 
 def obtener_pistas(palabra_secreta: str, intento: str) -> str:
-    """
-    Devuelve la cadena de pistas para un intento dado.
-    Parámetros:
-        palabra_secreta: la palabra secreta
-        intento: la palabra del intento
-    Devuelve:
-        Una cadena de 5 caracteres con 'V', 'A' y '_'
-    """
-    # TODO: Implementa esta función
-    return "_____"  # Elimina esta línea cuando la implementes
+    cadena_verdes, cadena_restante = marcar_verdes(palabra_secreta, intento)
+    colores = marcar_amarillos(intento, cadena_verdes, cadena_restante)
+    return colores
+
 
 
