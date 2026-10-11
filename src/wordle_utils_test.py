@@ -1,4 +1,4 @@
-from wordle_utils import es_palabra_valida, calcula_minutos_y_segundos, quitar_letra, marcar_verdes
+from wordle_utils import es_palabra_valida, calcula_minutos_y_segundos, quitar_letra, marcar_verdes, marcar_amarillos
 from datetime import datetime
 
 def test_es_palabra_valida():
@@ -34,9 +34,19 @@ def test_marcar_verdes():
     assert marcar_verdes("casar", "sacar") == ("_V_VV","cs")
     assert marcar_verdes("casar", "peras") == ("___V_", "casr")
 
+def test_marcar_amarillos():
+    print("Probando marcar_amarillos...")
+    assert marcar_amarillos("polio", "_____", "casar") == "_____"
+    assert marcar_amarillos("casar", "VVVVV", "") == "VVVVV"
+    assert marcar_amarillos("cazar", "VV_VV", "s") == "VV_VV"
+    assert marcar_amarillos("secta", "_____", "casar") == "A_A_A"
+    assert marcar_amarillos("sacar", "_V_VV", "cs") == "AVAVV"
+    assert marcar_amarillos("peras", "___V_", "csar") == "__AVA"
+
 
 test_es_palabra_valida()
 test_calcula_minutos_y_segundos()
 test_quitar_letra()
 test_marcar_verdes()
+test_marcar_amarillos()
 print("✅Todas las pruebas pasaron correctamente.")

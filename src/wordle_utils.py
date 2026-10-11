@@ -47,8 +47,18 @@ def marcar_verdes(palabra_secreta: str, intento: str) -> tuple[str, str]:
             cadena_restante += palabra_secreta[i]
     return (cadena_verdes, cadena_restante)
 
+def marcar_amarillos(intento: str, cadena_verdes: str, cadena_restante: str):
+    colores = ""
+    for i in range(len(intento)):
+        if cadena_verdes[i] == "V":
+            colores += "V"
+        elif intento[i] in cadena_restante:
+            colores += "A"
+            cadena_restante.replace(intento[i], "")
+        else:
+            colores += "_"
+    return colores
 
-# TODO: Escribe la cabecera completa e implementa la función marcar_amarillos
 
 def obtener_pistas(palabra_secreta: str, intento: str) -> str:
     """
