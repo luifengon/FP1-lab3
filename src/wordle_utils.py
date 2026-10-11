@@ -36,7 +36,17 @@ def quitar_letra(cadena: str, caracter: str):
     return res
 
 
-def marcar_verdes()
+def marcar_verdes(palabra_secreta: str, intento: str) -> tuple[str, str]:
+    cadena_verdes = ""
+    cadena_restante = ""
+    for i in range(len(palabra_secreta)):
+        if palabra_secreta[i] == intento[i]:
+            cadena_verdes += "V"
+        else:
+            cadena_verdes += "_"
+            cadena_restante += palabra_secreta[i]
+    return (cadena_verdes, cadena_restante)
+
 
 # TODO: Escribe la cabecera completa e implementa la función marcar_amarillos
 
